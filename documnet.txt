@@ -28,3 +28,7 @@
     - Expanded the 'PRODUCTS' column width (from 100px to 140px) and removed extra padding so 'Joint Petition Filed...' renders normally without heavy wrapping.
     - Expanded the 'ECOPY' column width (from 100px to 130px) and reduced right padding (pr-[33px] to pr-4) to prevent the Upload button from overflowing its border.
     - Bumped the total table 'min-width' to 1270px to smoothly accommodate the wider columns.
+
+64. Updated README:
+    - Replaced default Next.js boilerplate with tailored Court Click Dashboard setup instructions.
+    - Outlined prerequisites, installation, execution commands, and the tech stack.
