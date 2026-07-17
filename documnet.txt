@@ -1,0 +1,288 @@
+Changes Made:
+
+1. Installed `lucide-react` dependency to provide icons for the navigation sidebar.
+2. Created a new component `components/Navbar.tsx`:
+   - It is a left-aligned sidebar navigation (w-20, h-screen).
+   - Set the background color to `#000000` as requested.
+   - Added a custom SVG logo at the top matching the provided screenshot design, with a purple-ish background box `#2a1733` matching the design exactly.
+   - Added `lucide-react` icons: LayoutGrid, Users, UsersRound, FileText, SquareDashed, UserTie, MoreHorizontal, UserCircle.
+   - Restyled icons to gray and highlighted the active icon (UsersRound) in yellow `#FFD700`.
+3. Updated `app/layout.tsx`:
+   - Imported the `Navbar` component.
+   - Changed the `<body>` flex direction to `flex-row` instead of `flex-col` so that the sidebar sits on the left side of the main content (`{children}`).
+   - Wrapped `{children}` inside a `<main>` container with `flex-1 overflow-x-hidden` so it takes the remaining width of the screen.
+
+4. Created the top header section on the Dashboard page (app/page.tsx):
+   - Added the main title 'Certified True Copy (47834)' and subtitle 'Manage Your CTC Orders Here'.
+   - Added a Share icon and a SlidersHorizontal (Filter) icon inside bordered buttons (40x40px).
+   - Added a Search bar with a gray background and search icon.
+   - Used Flexbox and Tailwind CSS to align everything exactly as specified in the provided CSS snippets.
+
+5. Created the Tabs section on the Dashboard page (app/page.tsx):
+   - Added the dark pill-shaped container holding the tabs (bg #1F0D19, radius 32px).
+   - Implemented the active 'Orders (121)' tab with white background and subtle shadow.
+   - Added inactive tabs ('Clerks (40)', 'Courts (32)', 'Districts (14)', 'Eligible Users (11)') with #E6E6E6 color.
+   - Added a small 'Plus' icon next to the Clerks tab inside a white box.
+   - Added the 'Types' dropdown button on the right side with a ChevronDown icon.
+
+6. Created the OrdersTable component:
+   - Extracted the main data table into a new file 'components/OrdersTable.tsx' for better code organization.
+   - Structured the table layout using Tailwind CSS Grid/Flexbox to match the screenshot precisely, avoiding raw CSS dumping.
+   - Recreated the 'User Info', 'Court Complex', 'Products', 'Order Date', 'Status', 'Order Details / E-sign', 'Tags / Note', and 'Clerk' columns.
+   - Inserted placeholder dummy data based on the screenshot to demonstrate the UI elements (pill statuses, tag pills, action icons like Edit, Trash, Share, and the 'Assign' button).
+   - Imported and utilized 'lucide-react' icons across the table.
+   - Imported and rendered '<OrdersTable />' within the main 'app/page.tsx' dashboard layout.
+
+7. Updated the OrdersTable component:
+   - Refactored the layout from using div-based grid to a native HTML '<table>' element for better tabular structural integrity.
+   - Applied vertical border lines between all columns using 'border-r'.
+   - Discovered and added the missing 'ECOPY' column at the end of the table based on the provided screenshot.
+   - Inserted the dark purple 'Upload' button inside the new ECOPY column using the lucide-react 'CloudUpload' icon.
+
+8. Added Pagination Controls:
+   - Appended a pagination section at the bottom of 'app/page.tsx' to sit below the OrdersTable.
+   - Used 'mt-auto' on the pagination wrapper so that it always anchors to the bottom of the screen regardless of table height.
+   - Recreated the pagination UI perfectly with the active '1' button in purple (#50223C), clickable page numbers (2-5), ellipsis (...), total count (4810), left/right Chevron arrows, and a 'Go to Page' text input field.
+
+9. Replaced ChevronDown Icon:
+   - Replaced the lucide-react 'ChevronDown' icon in the 'Update status' and 'Choose Tag' dropdowns with a custom SVG caret.
+   - The new caret exactly matches the 15x17px frame with the '#1E1F21' filled vector path provided by the Figma export.
+
+10. Custom SVG Table Header Icons:
+    - Replaced the lucide-react 'Calendar' icon in the ORDER DATE column with a custom 20x20px SVG calendar matching the Figma design outline.
+    - Replaced the lucide-react 'ArrowUpDown' icons in the STATUS, TAGS / NOTE, and CLERK columns with custom 12x12px SVGs comprising two filled triangles, matching the sorting arrows design from Figma.
+
+10. Custom SVG Table Header Icons:
+    - Replaced the lucide-react 'Calendar' icon in the ORDER DATE column with a custom 20x20px SVG calendar matching the Figma design outline.
+    - Replaced the lucide-react 'ArrowUpDown' icons in the STATUS, TAGS / NOTE, and CLERK columns with the custom 20x20px SVG provided by the user, representing the solid double triangles inside a rounded mask.
+
+11. Table Refactoring and Calendar Update:
+    - Refactored the 'ArrowUpDown' SVG inside 'OrdersTable.tsx' into a separate 'SortIcon' component to vastly reduce code duplication and improve readability.
+    - Replaced the calendar SVG in the ORDER DATE column with the specific 1262x57 SVG provided in the request.
+
+12. Recreated Pixel-Perfect Header Layout:
+    - Extracted exact widths and horizontal positions from the Figma CSS export.
+    - Matched the overall container to 1385px and header height to 57px.
+    - Resized all header ('<th>') and body ('<td>') columns to their precise widths with customized padding to mirror the exact left-alignment of the text.
+    - Ensured that vertical borders accurately segment the columns as per the design.
+
+13. Perfected Table Body and SVG Replacements:
+    - Replaced 'View', 'E-sign', 'Update status', and 'Choose Tag' button backgrounds with pure white to match the exact layered look in the Figma design.
+    - Implemented date subtext highlights to support '03' and '11' in specific colors (e.g. orange/red) rather than the entire sentence.
+    - Updated generic icons (like Edit3 and Trash2) to match Figma (PenLine and a custom X for tags) to mimic the exact 'same SVG' visuals.
+
+14. Finalized Calendar SVG:
+    - Replaced the inline calendar SVG inside the ORDER DATE table header column with the exact intricate SVG code provided, ensuring precise structural match and rendering fidelity.
+
+15. Created Filter Popup Component:
+    - Created 'FilterPopup.tsx' in the components directory without injecting it into the main layout yet.
+    - Matched exact spacings, colors, and layout structure from the Figma reference image.
+    - Implemented dropdown inputs for 'District', 'Court Establishment', and 'Product'.
+    - Added a custom checked style for the 'Test Users' checkbox.
+    - Built right-aligned layout for 'Reset Filter' and 'Apply Filter' bottom buttons.
+
+16. Integrated Filter Popup into Page:
+    - Made 'page.tsx' a Client Component to manage popup toggle state.
+    - Replaced the generic slider icon with the exact provided custom filter SVG.
+    - Set up state to toggle the FilterPopup component directly underneath the button using absolute positioning.
+    - Handled the popup close action seamlessly.
+
+17. Centered Filter Popup Overlay:
+    - Removed fixed 920px height and internal scrolling from 'FilterPopup.tsx', making it fit its content dynamically.
+    - Adjusted 'FilterPopup' footer to statically align at the bottom instead of using absolute positioning.
+    - Updated 'page.tsx' to render the popup centered in the middle of the screen within a fixed overlay (backdrop-blur and dimming background) rather than popping down from the button.
+
+18. Replaced Share/Upload Button SVG:
+    - Replaced the generic Upload lucide-react icon with the precise SVG provided.
+    - Ensured JSX compatibility (strokeWidth).
+
+19. Expanded Orders Mock Data:
+    - Modified the 'orders' array in 'OrdersTable.tsx' to include comprehensive 'orderDetails'.
+    - Added support for 'type1' headers (Applicant, Case Number, etc.) and 'type2' tabbed headers (Order ID, Timeline, Customer Details, Address, Products).
+    - Included mock data derived directly from the provided design screenshots.
+
+20. Extracted Orders Data to JSON:
+    - Extracted the 'orders' array out of 'OrdersTable.tsx' into a dedicated 'data/orders.json' file.
+    - Ensured every customer has an identical unified schema structure for 'orderDetails' using the dummy values provided.
+    - Imported the JSON file directly into 'OrdersTable.tsx' to keep the component code clean.
+
+21. Created Add Clerk Component:
+    - Created 'AddClerkPopup.tsx' in the components directory.
+    - Matched exact styling from Figma SVG including the custom Indian flag prefix, light background colors, rounded inputs, and specifically styled footer buttons (Cancel and Add & Save).
+    - The popup is fully responsive to the provided 1093x546 dimensions and features an 'onClose' prop for easy integration.
+
+22. Added Clerk Save Functionality:
+    - Created 'data/clerks.json' with initial mock clerk data.
+    - Added form state, validation, and an 'onSave' prop to 'AddClerkPopup.tsx'.
+    - Connected the popup to the '+' button in the 'Clerks' tab in 'page.tsx'.
+    - Implemented state in 'page.tsx' to dynamically display the number of clerks and handle saving new clerks to the state.
+
+23. Created Assign Clerk Component:
+    - Created 'AssignClerkPopup.tsx' using the provided designs.
+    - Implemented a list of clerks mapped from 'clerks.json' data with a selectable UI (Custom checkboxes, fallback avatars).
+    - Integrated the 'Add New' button to open the 'AddClerkPopup' component directly from this modal.
+    - Integrated 'AssignClerkPopup' into the main 'page.tsx' and triggered it from the 'Assign' button in the 'OrdersTable'.
+
+24. Updated Assign Clerk Personnel List:
+    - Replaced the main list with 3 hardcoded default authorized personnel (Shaman, Gouri, Anil).
+    - Upgraded the 'Choose Clerks' field into a fully functional custom dropdown menu.
+    - The dropdown now correctly populates with all clerks from 'clerks.json'.
+    - Selecting a clerk from the dropdown updates the main selection state and reflects inside the input box.
+
+25. Converted Components to JSX:
+    - Stripped TypeScript interfaces and typings from AddClerkPopup, AssignClerkPopup, FilterPopup, Navbar, and OrdersTable.
+    - Renamed all these component files from '.tsx' to '.jsx'.
+
+26. Created CaseCustomerDetails Component:
+    - Added missing 'digioDocuments' dummy data to 'orders.json'.
+    - Created a new 'CaseCustomerDetails.jsx' component matching the requested right-drawer popup design with 4 tabs: 'Case & Customer Details', 'Address', 'Products', and 'Digio eSign Documents'.
+    - Integrated the new popup into 'OrdersTable.jsx' to open when clicking the 'View' button on any order.
+
+27. Optimized CaseCustomerDetails Spacing:
+    - Reduced padding and margins throughout the component.
+    - Decreased gaps in the timeline grid and tab content areas to eliminate unnecessary scrolling.
+
+28. Updated Mock Data (orders.json):
+    - Mapped the dummy 'customerDetails' object inside each order to perfectly match the name, phone number, and reference id from their corresponding 'userInfo'.
+
+29. Created TagQuickFilter Component:
+    - Created 'TagQuickFilter.jsx' popup featuring 10 color-coded tags and custom checkboxes.
+    - Integrated it into 'OrdersTable.jsx' to open when clicking the 'TAGS / NOTE' column header.
+
+30. Refactored TagQuickFilter Data:
+    - Extracted the hardcoded TAGS array into a new 'tags.json' file.
+    - Updated 'TagQuickFilter.jsx' to import its tags directly from this JSON file.
+
+31. Fixed TagQuickFilter Overflow/Clipping Issue:
+    - Upgraded the TagQuickFilter to use a React Portal-like 'fixed' positioning approach with dynamic coordinates.
+    - Updated OrdersTable to compute the bounding rect of the 'TAGS / NOTE' header and pass it to the filter.
+    - Added a transparent fixed backdrop to easily close the filter when clicking outside of it, ensuring the popup breaks out of the table's 'overflow-x-auto' boundary seamlessly.
+
+32. Created Tag Management System:
+    - Created 'ChooseTag.jsx' popup to list, edit, and delete tags.
+    - Created 'CreateNewTag.jsx' modal for adding new tags, complete with a color picker and real-time preview.
+    - Updated 'OrdersTable.jsx' to manage the tags list locally, passing it down to TagQuickFilter and ChooseTag so newly added tags instantly appear.
+    - Wired up the 'Choose Tag' button in OrdersTable to open the new flow.
+
+33. Moved CreateNewTag divider:
+    - Removed the top border from the footer.
+    - Added a full-width divider above the 'Preview' section to exactly match the design.
+
+34. Fixed CreateNewTag Title Alignment and Syntax:
+    - Re-aligned the 'Support Tags' title and subtitle to the left (flex-start) matching the content width.
+    - Fixed a missing closing div tag syntax error introduced by the divider update.
+
+35. Fixed CreateNewTag Preview Visibility:
+    - Removed the strict fixed height constraint from the modal.
+    - Changed the footer to use normal document flow (instead of absolute positioning), allowing the modal to automatically and dynamically size itself based on content, completely resolving the preview underlay issue.
+
+36. Enabled Tag Editing & Deletion:
+    - Wired up the Edit and Delete buttons in 'ChooseTag.jsx'.
+    - Passed an 'editingTag' state down to 'CreateNewTag.jsx'.
+    - Refactored 'CreateNewTag.jsx' to seed input values and dynamically update title/button text when editing an existing tag.
+
+37. Updated E-sign Button Styling:
+    - Adjusted width to 107px and height to 33px.
+    - Updated background to #F5F5F5 with a #E4E4E4 border and 6.15px border radius.
+    - Resized the Eye icon to 20px with 1.5px stroke width to match the design specs precisely.
+
+38. Lifted Orders State to Page Level:
+    - Moved the 'orders.json' data into a React state variable at the 'page.tsx' level so the UI can dynamically update.
+    - Passed the orders state down into 'OrdersTable.jsx'.
+    - Modified 'OrdersTable.jsx' to pass the specific 'orderNo' up when the 'Assign' or 'Trash' (Unassign) buttons are clicked.
+    - Updated 'AssignClerkPopup.jsx' to fire an 'onAssign' event with the chosen clerk's ID, which seamlessly updates the OrdersTable without reloading the page.
+
+39. Fixed Assign Button Bug:
+    - Fixed an issue where the Assign button wouldn't open the popup because it was attempting to reference 'order.orderNo'. Updated it to correctly use 'order.id' which matches the data structure in 'orders.json'.
+
+40. Renamed page.tsx:
+    - Renamed 'app/page.tsx' to 'app/page.jsx' to match the rest of the JavaScript components in the project.
+
+41. Fixed Assign Clerk List Data:
+    - Removed the dummy 'defaultPersons' array from 'AssignClerkPopup.jsx'.
+    - Replaced the hardcoded choices with the first 3 actual clerks from the real data to ensure compatibility.
+
+41. Enabled Status Updating:
+    - Made the 'Update status' button functional in 'OrdersTable.jsx'.
+    - Clicking it now opens a dropdown menu with the available statuses ('cancelled', 'order placed', 'payment completed', 'completed').
+    - Selecting a status instantly updates the state in 'page.jsx', reflecting the new status and badge color dynamically in the table.
+
+42. Created Share Component:
+    - Created 'Share.jsx' to match the provided Figma layout for sharing order details.
+    - Extracted all required order details from 'orders.json' dynamically.
+    - Implemented a 'Copy Details' button that writes the formatted text to the user's clipboard.
+    - Wired the 'Share2' icon in the assigned clerk cell to open this popup.
+
+43. Made Order Tags Dynamic:
+    - Seeded 'orders.json' with a 'tags' array for each order.
+    - Updated 'OrdersTable.jsx' to render the order's specific tags dynamically instead of hardcoded defaults.
+    - Handled the 'onSelect' event in 'ChooseTag.jsx' to add chosen tags to the exact order that spawned the popup.
+    - Implemented a delete handler to remove a tag from an order when its 'X' button is clicked.
+
+44. Enabled Multiple Tag Addition:
+    - Modified the tag selection logic in 'OrdersTable.jsx' to keep the 'Choose Tag' popup open after a tag is selected.
+    - This allows users to add multiple tags to a single order seamlessly in one interaction.
+
+45. Fixed Rapid Tag Addition:
+    - Refactored tag addition in 'page.jsx' to use functional state updates ('prev => prev...').
+    - This resolves the stale closure issue, ensuring you can quickly click and add multiple tags from the open popup without them overwriting each other.
+
+46. Added Multi-Select UI to Tags:
+    - Upgraded the 'Choose Tag' popup to render checkboxes next to each tag.
+    - Implemented a toggle mechanism allowing users to visually select and deselect multiple tags at once.
+    - Checkboxes dynamically read the selected state from the active order.
+
+47. Reverted Tag UI to Single Select:
+    - Removed the checkboxes and multi-select UI from the 'Choose Tag' popup based on feedback.
+    - Clicking a tag now selects it immediately and closes the popup, returning to the original interaction model.
+    - Seeded 'orders.json' so that Order 2 and Order 3 also have the initial 4 tags perfectly matching the provided screenshot.
+
+48. Fixed React Key Warning:
+    - Resolved the 'Each child in a list should have a unique key prop' warning in 'ChooseTag' and 'OrdersTable'.
+    - The error occurred because 'tags.json' tags lack 'id' fields. Changed the mapping keys from 'tag.id' to 'tag.label', which is guaranteed to be unique.
+
+49. Updated Tag Styling to Figma Spec:
+    - Refined the tag rendering in 'OrdersTable.jsx' to perfectly match the provided Figma CSS.
+    - Adjusted tag height to 25px, padding to 8px, and gap to 8px.
+    - Updated typography to 12px font-normal.
+    - Scaled the remove 'X' button container down to exactly 10x10px, updating the SVG icon to size 7 with #F9F9F9 stroke.
+
+50. Perfected Tag X Button Positioning:
+    - Made the tag container relative and absolutely positioned the delete button at the top-right corner.
+    - Shifted the button out by 3px (-top-[3px] -right-[3px]) so it perfectly overlaps the corner, half-inside and half-outside, exactly matching the provided image.
+
+51. Implemented Copy Address Functionality:
+    - Wired up the 'Copy Address' button in 'OrdersTable.jsx' to use the clipboard API.
+    - Extracted detailed address components from 'order.orderDetails.address' and 'customerDetails'.
+    - Formatted the copied text to exactly match the requested multi-line layout (Name, Address Lines, City/State/Pincode, and properly prefixed Phone).
+    - Added a 2-second visual 'Copied' state with a green checkmark for better UX feedback.
+
+52. Fixed Phone Number Copy Icon State:
+    - Replaced the global 'copy' state with 'copiedPhoneId' to track which specific order's phone number was copied.
+    - Implemented a 2-second timeout to reset the state automatically.
+    - Changed the UI to temporarily swap the copy icon for a green checkmark when copied, mirroring the 'Copy Address' button UX.
+
+53. Replaced CSS Flag with Real SVG:
+    - Removed the blocky CSS-drawn Indian flag in 'AddClerkPopup.jsx'.
+    - Integrated a highly accurate, real SVG Indian flag via FlagCDN for a polished and professional look.
+
+54. Fixed Close Button in AssignClerkPopup:
+    - Replaced the incorrect list/menu SVG with a proper 'X' close icon.
+    - Styled the button to maintain the intended 40x40 rounded border box design.
+
+55. Updated Upload Button in OrdersTable:
+    - Replaced the generic 'CloudUpload' icon with the custom SVG provided.
+    - Adjusted the button's spacing, padding, gap, and typography (font-semibold text-[14px]) to match the reference design.
+    - Converted the SVG's camelCase attributes (like strokeMiterlimit) to be React-compatible.
+
+56. Replaced Navbar Icons with Custom SVGs:
+    - Replaced 'UsersRound', 'FileText', 'SquareDashed', 'User', and 'UserCircle' icons in 'Navbar.jsx' with specific custom SVG code provided by the user.
+    - Ensured all SVG attributes like 'stroke-width', 'stroke-linecap', 'stroke-linejoin', and 'clip-path' were converted to React's camelCase format for flawless rendering.
+
+57. Replaced Remaining Navbar Icons:
+    - Swapped out the 'MoreHorizontal', 'LayoutGrid', and 'Users' icons in 'Navbar.jsx' with the remaining custom SVGs.
+    - Ensured full React compatibility by camelCasing all SVG attributes (stroke-linecap, stroke-width, etc.).
+
+58. Set Global Font to Inter:
+    - Replaced the default 'Geist' fonts with 'Inter' (weights 400, 600, 700) using 'next/font/google' in 'layout.tsx'.
+    - Updated the Tailwind CSS theme config and the base body styles in 'globals.css' to apply the Inter font variable globally across the codebase.

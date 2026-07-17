@@ -1,0 +1,12 @@
+[
+  { "label": "Subscription Pending", "color": "#6B8FA3" },
+  { "label": "Nakul", "color": "#8FA88F" },
+  { "label": "Follow up case for Details", "color": "#C27A6B" },
+  { "label": "Add Case", "color": "#A39382" },
+  { "label": "Aadhaar Verified", "color": "#C2A65A" },
+  { "label": "Autopay Concern", "color": "#9B8FAD" },
+  { "label": "Background Check for Case", "color": "#748CA1" },
+  { "label": "Call Back", "color": "#C48E90" },
+  { "label": "Case Added", "color": "#99A2AA" },
+  { "label": "Gouri", "color": "#6B9E90" }
+]
