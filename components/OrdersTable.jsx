@@ -65,18 +65,18 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
   };
 
   return (
-    <div className="w-full px-10 overflow-hidden">
-      <div className="min-w-[1385px] bg-[#F8F8F8] border border-[#DCD2D8] rounded-[16px] shadow-sm overflow-hidden">
+    <div className="w-full px-10 mb-6 overflow-x-auto">
+      <div className="min-w-[1270px] bg-[#F8F8F8] border border-[#DCD2D8] rounded-[16px] shadow-sm overflow-hidden">
 
         <table className="w-full border-collapse table-fixed text-left">
           {/* Table Header */}
           <thead>
-            <tr className="h-[57px] bg-[#D9D9D9] bg-opacity-50 border-b border-[#DCD2D8] text-[#818181] text-[11px] font-semibold tracking-wider">
-              <th className="w-[71px] pl-[33px] py-0 font-semibold text-[13px] text-[#818181]">#</th>
-              <th className="w-[177px] pl-0 py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">USER INFO</th>
-              <th className="w-[139px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">COURT COMPLEX</th>
-              <th className="w-[113px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">PRODUCTS</th>
-              <th className="w-[125px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
+            <tr className="h-[40px] bg-[#D9D9D9] bg-opacity-50 border-b border-[#DCD2D8] text-[#818181] text-[11px] font-semibold tracking-wider">
+              <th className="w-[50px] pl-[33px] py-0 font-semibold text-[13px] text-[#818181]">#</th>
+              <th className="w-[160px] pl-0 py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">USER INFO</th>
+              <th className="w-[130px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">COURT COMPLEX</th>
+              <th className="w-[140px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">PRODUCTS</th>
+              <th className="w-[115px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
                 <div className="flex items-center gap-1">ORDER DATE <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <mask id="path-1-inside-1_889_3369" fill="white">
                     <path d="M16 0C18.2091 0 20 1.79086 20 4V16C20 18.2091 18.2091 20 16 20H4C1.79086 20 3.22133e-08 18.2091 0 16V4C0 1.79086 1.79086 3.22128e-08 4 0H16Z" />
@@ -93,11 +93,11 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                   </defs>
                 </svg></div>
               </th>
-              <th className="w-[165px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
+              <th className="w-[145px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
                 <div className="flex items-center gap-1">STATUS <SortIcon /></div>
               </th>
-              <th className="w-[139px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">ORDER DETAILS/ E-SIGN</th>
-              <th className="w-[222px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7] relative">
+              <th className="w-[130px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">ORDER DETAILS/ E-SIGN</th>
+              <th className="w-[210px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7] relative">
                 <div
                   className="flex items-center gap-1 cursor-pointer"
                   onClick={(e) => {
@@ -123,10 +123,10 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                   />
                 )}
               </th>
-              <th className="w-[115px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
+              <th className="w-[105px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider border-r border-[#E9E3E7]">
                 <div className="flex items-center gap-1">CLERK <SortIcon /></div>
               </th>
-              <th className="w-[119px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider">ECOPY</th>
+              <th className="w-[130px] pl-[16px] py-0 font-semibold text-[11px] text-[#818181] uppercase tracking-wider">ECOPY</th>
             </tr>
           </thead>
 
@@ -136,12 +136,12 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
               <tr key={order.id} className={`align-top ${idx !== orders.length - 1 ? 'border-b border-[#E9E3E7]' : ''}`}>
 
                 {/* ID */}
-                <td className="pl-[33px] pr-4 py-4 text-[#818181] font-semibold text-sm pt-6">
+                <td className="pl-[33px] pr-4 py-1.5 text-[#818181] font-semibold text-sm pt-1.5">
                   {order.id}
                 </td>
 
                 {/* User Info */}
-                <td className="pl-0 pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-0 pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-1 mt-1">
                     <span className="text-[#11060C] font-semibold text-sm">{order.userInfo.name}</span>
                     <div className="flex items-center gap-2 text-[#818181] text-[13px] font-medium">
@@ -168,7 +168,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Court Complex */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-1 mt-1">
                     <span className="text-[#11060C] font-semibold text-sm">{order.court.name}</span>
                     <span className="text-[#818181] font-medium text-[13px]">{order.court.location}</span>
@@ -176,16 +176,16 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Products */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-1 mt-1">
                     <span className="text-[#11060C] font-semibold text-sm">{order.product.title}</span>
-                    {order.product.desc && <span className="text-[#818181] font-medium text-[11px] leading-snug pr-4">{order.product.desc}</span>}
+                    {order.product.desc && <span className="text-[#818181] font-medium text-[11px] leading-snug">{order.product.desc}</span>}
                     <span className="text-[#818181] font-medium text-[13px]">{order.product.price}</span>
                   </div>
                 </td>
 
                 {/* Order Date */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-1 mt-1">
                     <span className="text-[#11060C] font-semibold text-sm">{order.date.date}</span>
                     <span className="text-[#818181] font-medium text-[13px]">{order.date.time}</span>
@@ -199,7 +199,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Status */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-3 mt-1 relative">
                     <button
                       onClick={(e) => { e.stopPropagation(); setActiveStatusDropdown(activeStatusDropdown === order.id ? null : order.id); }}
@@ -232,7 +232,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Order Details / E-sign */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-2 mt-1">
                     <button
                       onClick={() => setViewOrderDetails(order)}
@@ -248,7 +248,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Tags / Note */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-2 mt-1">
                     <div className="flex items-center gap-2">
                       <button
@@ -293,7 +293,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                 </td>
 
                 {/* Clerk */}
-                <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
+                <td className="pl-[16px] pr-4 py-1.5 border-r border-[#E9E3E7]">
                   <div className="flex flex-col gap-2 mt-1">
                     {order.clerk.assigned ? (
                       <>
@@ -307,19 +307,19 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                     ) : (
                       <button
                         onClick={() => onAssignClerkClick?.(order.id)}
-                        className="flex items-center justify-center gap-2 bg-[#552746] text-white rounded-md px-4 py-1.5 w-fit hover:bg-[#3d1c32] transition-colors shadow-sm"
+                        className="flex items-center justify-center gap-2 bg-[#552746] text-white rounded-md px-3 py-1 w-fit hover:bg-[#3d1c32] transition-colors shadow-sm"
                       >
-                        <UserPlus size={14} />
-                        <span className="font-semibold text-[13px]">Assign</span>
+                        <UserPlus size={13} />
+                        <span className="font-semibold text-[12px]">Assign</span>
                       </button>
                     )}
                   </div>
                 </td>
 
                 {/* ECOPY */}
-                <td className="pl-[16px] pr-4 py-4">
-                  <div className="flex flex-col gap-2 mt-1">
-                    <button className="flex items-center justify-center gap-[6px] bg-[#46223B] text-[#EDE8EB] rounded-[6px] w-[95px] h-[34px] hover:bg-[#301628] transition-colors">
+                <td className="pl-[16px] pr-4 py-1.5">
+                  <div className="flex flex-col gap-2 mt-0">
+                    <button className="flex items-center justify-center gap-[6px] bg-[#46223B] text-[#EDE8EB] rounded-[6px] w-[95px] h-[32px] hover:bg-[#301628] transition-colors">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_889_4855" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
                           <path d="M0 0H16V16H0V0Z" fill="white" />

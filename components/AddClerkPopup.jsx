@@ -21,7 +21,7 @@ export function AddClerkPopup({ onClose, onSave }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-[60]">
       <div className="w-[1093px] h-[546px] bg-[#F3F4F5] rounded-xl shadow-2xl relative flex flex-col overflow-hidden">
         
         {/* Close Button */}

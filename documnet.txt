@@ -2,3 +2,29 @@
 60. Disabled Scrolling Globally and on OrdersTable:
     - Updated 'page.jsx' main wrapper to use 'h-screen' and 'overflow-hidden' instead of 'min-h-screen' to lock the viewport height.
     - Modified 'OrdersTable.jsx' to remove 'mb-20' and replaced 'overflow-x-auto' with 'overflow-hidden' so the table component will not scroll horizontally or vertically.
+
+61. Fixed Add Clerk Popup Z-Index Bug:
+    - Increased the z-index of 'AddClerkPopup.jsx' to 'z-[60]' to ensure it renders correctly on top of the 'AssignClerkPopup' (z-50) when the 'Add New' button is clicked.
+
+62. Decreased Overall UI Scale:
+    - Added 'zoom: 0.8' to the html element in 'globals.css' to proportionally shrink all UI elements, resolving the oversized/squished appearance on smaller screens and perfectly matching the spacious layout in the reference image.
+
+60. Fixed Popup Z-Index Stacking:
+    - Increased the z-index of 'AddClerkPopup.jsx' to 'z-[60]' so it correctly renders in front of 'AssignClerkPopup.jsx' (which uses 'z-50') when opening the add new clerk flow.
+
+61. Decreased Overall Layout Sizes for Scroll-less View:
+    - Reduced padding in 'page.jsx' dashboard header from 'py-8' to 'py-4'.
+    - Reduced bottom margin on tabs section from 'mb-6' to 'mb-3'.
+    - Decreased all row vertical paddings in 'OrdersTable.jsx' from 'py-4' to 'py-2.5'.
+    - Decreased table header height from 'h-[57px]' to 'h-[48px]'.
+    - Reduced table bottom margin from 'mb-20' to 'mb-6'.
+
+62. Eliminated Table Scrollbars:
+    - Reduced minimum width of Orders table from 'min-w-[1385px]' to 'min-w-[1200px]' to remove the horizontal scrollbar on smaller screens.
+    - Decreased fixed column widths slightly across all headers.
+    - Further compressed all table row paddings from 'py-2.5' to 'py-1.5' to shrink vertical height even more.
+
+63. Fixed Column Text Wrapping and Overflows:
+    - Expanded the 'PRODUCTS' column width (from 100px to 140px) and removed extra padding so 'Joint Petition Filed...' renders normally without heavy wrapping.
+    - Expanded the 'ECOPY' column width (from 100px to 130px) and reduced right padding (pr-[33px] to pr-4) to prevent the Upload button from overflowing its border.
+    - Bumped the total table 'min-width' to 1270px to smoothly accommodate the wider columns.

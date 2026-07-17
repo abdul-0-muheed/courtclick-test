@@ -15,9 +15,9 @@ export default function Home() {
   const [clerks, setClerks] = useState(clerksData);
   const [orders, setOrders] = useState(ordersData);
   return (
-    <div className="flex flex-col w-full h-screen bg-[#F8F9FA] overflow-hidden">
+    <div className="flex flex-col w-full min-h-screen bg-[#F8F9FA]">
       {/* Dashboard Header Div */}
-      <div className="flex justify-between items-center px-10 py-8">
+      <div className="flex justify-between items-center px-10 py-4">
 
         {/* Left side: Title and Subtitle */}
         <div className="flex flex-col gap-1.5">
@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       {/* Tabs Section */}
-      <div className="flex justify-between items-center px-10 mb-6">
+      <div className="flex justify-between items-center px-10 mb-3">
 
         {/* Left side: Tabs Container */}
         <div className="flex items-center bg-[#1F0D19] rounded-[32px] p-1.5 gap-2">
