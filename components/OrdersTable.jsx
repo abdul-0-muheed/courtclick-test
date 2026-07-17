@@ -249,7 +249,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
 
                 {/* Tags / Note */}
                 <td className="pl-[16px] pr-4 py-4 border-r border-[#E9E3E7]">
-                  <div className="flex flex-col gap-2 mt-1 pr-2">
+                  <div className="flex flex-col gap-2 mt-1">
                     <div className="flex items-center gap-2">
                       <button
                         className="flex items-center justify-between border border-[#DCD2D8] bg-white rounded-md px-3 py-1.5 flex-1 hover:bg-gray-50 transition-colors"
@@ -271,11 +271,11 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
                     </div>
 
                     {/* Tags Grid */}
-                    <div className="flex flex-wrap gap-1.5 mt-1">
+                    <div className="flex flex-wrap gap-2 w-full mt-1.5">
                       {order.tags?.map((tag, i) => (
-                        <div key={`${tag.label}-${i}`} className="relative inline-flex mt-1 mr-1">
-                          <div className="flex items-center justify-center px-2.5 h-[25px] rounded-[16px]" style={{ backgroundColor: tag.color }}>
-                            <span className="text-[#EDE8EB] text-[12px] font-normal leading-[130%]">{tag.label}</span>
+                        <div key={`${tag.label}-${i}`} className="relative flex-1 inline-flex min-w-[max-content]">
+                          <div className="flex items-center justify-center w-full px-2.5 h-[25px] rounded-[16px]" style={{ backgroundColor: tag.color }}>
+                            <span className="text-[#EDE8EB] text-[12px] font-normal leading-[130%] whitespace-nowrap">{tag.label}</span>
                           </div>
                           <button
                             className="absolute -top-[3px] -right-[3px] bg-[#1F0D19] w-[12px] h-[12px] rounded-full flex items-center justify-center hover:bg-black transition-colors shadow-sm"

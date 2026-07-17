@@ -286,3 +286,8 @@ Changes Made:
 58. Set Global Font to Inter:
     - Replaced the default 'Geist' fonts with 'Inter' (weights 400, 600, 700) using 'next/font/google' in 'layout.tsx'.
     - Updated the Tailwind CSS theme config and the base body styles in 'globals.css' to apply the Inter font variable globally across the codebase.
+
+59. Fixed Tags Column Width:
+    - Removed 'pr-2' from the 'Tags / Note' column container.
+    - Added 'flex-1' and 'w-full' to the tags so they dynamically stretch to fill the entire column width evenly.
+    - Removed manual 'mt-1 mr-1' margins in favor of a clean 'gap-2' flex layout.
