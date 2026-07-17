@@ -15,7 +15,7 @@ export default function Home() {
   const [clerks, setClerks] = useState(clerksData);
   const [orders, setOrders] = useState(ordersData);
   return (
-    <div className="flex flex-col w-full min-h-screen bg-[#F8F9FA]">
+    <div className="flex flex-col w-full h-screen bg-[#F8F9FA] overflow-hidden">
       {/* Dashboard Header Div */}
       <div className="flex justify-between items-center px-10 py-8">
 

@@ -65,7 +65,7 @@ export function OrdersTable({ orders = [], onAssignClerkClick, onUnassignClerkCl
   };
 
   return (
-    <div className="w-full px-10 mb-20 overflow-x-auto">
+    <div className="w-full px-10 overflow-hidden">
       <div className="min-w-[1385px] bg-[#F8F8F8] border border-[#DCD2D8] rounded-[16px] shadow-sm overflow-hidden">
 
         <table className="w-full border-collapse table-fixed text-left">
